@@ -296,6 +296,25 @@ tshark -i eth0 -w capture.pcapng -c 1000
 
 ## 📖 Vocabulary
 
+| Term | Definition | Where you'll see it in this lab |
+|---|---|---|
+| **Capture filter** | A filter applied before capturing that limits what gets recorded | Step 3 |
+| **Display filter** | A filter applied after capturing that limits what you see without discarding anything | Step 3, all exercises |
+| **PCAP / PCAPNG** | File formats for saved packet captures. `.pcapng` is Wireshark's default | Step 5 and the portfolio captures |
+| **IP address** | The numeric address that identifies a device on a network | `ip.addr`, `ip.src` filters |
+| **Port** | A number that identifies a specific service on a host, such as 53 for DNS, 80 for HTTP, and 443 for HTTPS | `tcp.port == 443` |
+| **Payload** | The actual data a packet carries | Cleartext credentials in Exercise C |
+| **SYN** | TCP flag that starts a connection ("I want to connect") | Three-way handshake |
+| **ACK** | TCP flag that acknowledges received data or confirms a connection | Three-way handshake |
+| **RST** | TCP flag that forcibly closes a connection, often because it was refused | `tcp.flags.reset == 1` |
+| **TCP stream** | All the packets belonging to one connection, reassembled into a conversation | Exercise D |
+| **A record** | A DNS record that maps a domain name to an IPv4 address | Exercise A |
+| **Cleartext** | Data sent without encryption, readable by anyone who captures it | HTTP login in Exercise C |
+| **TLS** | The encryption layer that turns HTTP into HTTPS | HTTP vs HTTPS |
+| **Man-in-the-middle** | An attacker positioned between two parties who can read or alter their traffic | Why HTTP login forms are risky |
+| **Command and control (C2)** | A server that malware contacts to receive instructions | Spotting unusual DNS queries |
+| **Data exfiltration** | Unauthorized transfer of data out of a network | `http.request` filter |
+
 ---
 
 ## 💡 Lessons Learned
