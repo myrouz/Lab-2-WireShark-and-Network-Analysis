@@ -300,7 +300,15 @@ tshark -i eth0 -w capture.pcapng -c 1000
 
 ## 💡 Lessons Learned
 
-
+- **Display filters beat capture filters for learning.** Capturing everything and filtering afterward means the full capture is always still there. I could look at the same traffic as DNS, then TCP, then HTTP without recapturing.
+- **Every connection starts with DNS.** Seeing the query and response before each website visit made it clear why broken DNS looks like "the internet is down." It is also where unusual domain lookups would show up first in a real investigation.
+- **The TCP handshake is a diagnostic tool.** A SYN with no SYN-ACK points to a refused connection or an unreachable server, and a RST means the connection was forcibly closed. Knowing these patterns turns a vague "it won't connect" into a specific question.
+- **HTTP exposes everything.** Finding a test username and password in plaintext in a POST request showed why HTTPS is required on any login form. It is one thing to be told this and another to read the credentials yourself.
+- **Following a stream makes packets readable.** Individual packets are fragments. Follow TCP Stream turns them into a conversation, which is how you would reconstruct what actually happened during an incident.
+- **Capturing needs the right setup.** Without Npcap on Windows, ChmodBPF on macOS, or `wireshark` group membership on Linux, the interface list is empty. Checking the capture driver and permissions is the first troubleshooting step.
+- **Switched networks limit what you can see.** Promiscuous mode only shows other devices' traffic on hubs or with port mirroring. On a normal switched network I mostly saw my own traffic plus broadcasts.
+- **Saved captures are evidence.** Saving `.pcapng` files and documenting what each one shows turns a lab exercise into portfolio material.
+- **Only capture what you own or have permission to monitor.** The credential exercise worked because it ran against my own test system.
    
 
    
