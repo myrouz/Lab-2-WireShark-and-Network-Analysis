@@ -10,18 +10,23 @@ https://www.loom.com/share/00fdabe6b66741368c5b8a03275f3c78
 
 ## 📋 Overview
 
-Networks carry everything an organization produces: logins, database queries, file transfers, API calls. When something goes wrong, whether it's an unreachable service, slow performance, or a security alert, the network is almost always involved, and the only way to know what is happening is to look at the packets.
+Network traffic carries critical enterprise activity, including authentication requests, database queries, file transfers, and API communications. When connectivity issues, performance degradation, or security alerts occur, packet-level analysis provides visibility into network communications and helps identify the underlying cause.
 
-This lab uses Wireshark to capture live traffic and decode it at the packet level. I analyzed DNS queries and responses, followed the TCP three-way handshake (SYN → SYN-ACK → ACK), reconstructed a full conversation with Follow TCP Stream, and compared HTTP and HTTPS traffic to see why encryption matters. In the HTTP capture, credentials were readable in plaintext, which is the clearest demonstration of why every login form needs TLS.
+This lab uses Wireshark to capture and analyze network traffic at the packet level. Analysis includes examining DNS queries and responses, tracing the TCP three-way handshake (SYN → SYN-ACK → ACK), reconstructing application conversations using Follow TCP Stream, and comparing HTTP and HTTPS traffic to understand the role of encryption in protecting data in transit. An HTTP capture demonstrated how credentials transmitted without encryption can be exposed in plaintext, highlighting the importance of TLS-protected authentication.
 
-Knowing what normal traffic looks like is the baseline for spotting abnormal traffic: an unexpected DNS lookup that could be malware calling home, a SYN with no reply that points to a refused connection, or a stream that shows exactly what data left the network. That makes this lab a foundation for SOC analysis, incident response, and cloud network troubleshooting.
+Understanding normal network behavior establishes a baseline for identifying suspicious activity and diagnosing connectivity problems. Examples include unexpected DNS queries that may indicate malware command-and-control activity, unanswered TCP SYN packets that may suggest connectivity issues or packet filtering, and reconstructed TCP streams that reveal the contents of unencrypted application traffic.
+
+These packet analysis skills provide a practical foundation for Security Operations Center (SOC) monitoring, incident response, network troubleshooting, and cloud network diagnostics.
 
 ---
 
 ## 🎯 Business Context
 
-Every piece of data an organization produces crosses the network, and when something breaks, the network is almost always involved. Packet analysis is how teams prove what is actually happening instead of guessing.
+Organizations depend on reliable and secure network communications to support authentication, business applications, cloud services, and data exchange. When connectivity failures, performance issues, or suspicious activity occur, IT and security teams need visibility into network traffic to identify root causes, investigate potential threats, and minimize operational disruption.
 
+This lab simulates real-world network troubleshooting and security investigation using Wireshark. By capturing and analyzing packets, inspecting DNS queries, tracing TCP connections, and comparing encrypted and unencrypted traffic, the investigation demonstrates how packet-level visibility helps diagnose communication failures, identify potentially exposed sensitive data, and recognize suspicious network behavior.
+
+Developing the ability to distinguish normal from abnormal traffic supports faster troubleshooting, more effective incident response, and better-informed security decisions. These capabilities help organizations reduce downtime, investigate security events, and strengthen the protection of data transmitted across enterprise and cloud networks.
 ---
 
 ## ✅ Prerequisites
