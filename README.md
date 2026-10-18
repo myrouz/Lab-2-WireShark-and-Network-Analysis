@@ -32,7 +32,8 @@ Developing the ability to distinguish normal from abnormal traffic supports fast
 
 ## 🧩 Architecture
 
----
+<img width="1024" height="555" alt="Nessus-Vulnerability-Management -architecture" src="https://github.com/user-attachments/assets/50d1dfd3-d858-4975-9b4f-e3079d4b3a48" />
+
 
 ## 📚 Key Concepts
 
@@ -317,7 +318,7 @@ tshark -i eth0 -w capture.pcapng -c 1000
 
 ---
 
-## 💡 Lessons Learned
+## 💡 Key Takeaway
 
 - **Every connection starts with DNS.** Seeing the query and response before each website visit made it clear why broken DNS looks like "the internet is down." It is also where unusual domain lookups would show up first in a real investigation.
 - **The TCP handshake is a diagnostic tool.** A SYN with no SYN-ACK points to a refused connection or an unreachable server, and a RST means the connection was forcibly closed. Knowing these patterns turns a vague "it won't connect" into a specific question.
