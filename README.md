@@ -32,7 +32,6 @@ The ability to distinguish normal traffic patterns from unusual activity support
 
 ## 🧩 Architecture
 
-<img width="1024" height="555" alt="Nessus-Vulnerability-Management -architecture" src="https://github.com/user-attachments/assets/50d1dfd3-d858-4975-9b4f-e3079d4b3a48" />
 
 
 ## 📚 Key Concepts
