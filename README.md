@@ -10,23 +10,23 @@ https://www.loom.com/share/00fdabe6b66741368c5b8a03275f3c78
 
 ## 📋 Overview
 
-Network traffic carries critical enterprise activity, including authentication requests, database queries, file transfers, and API communications. When connectivity issues, performance degradation, or security alerts occur, packet-level analysis provides visibility into network communications and helps identify the underlying cause.
+Network traffic carries critical enterprise activity, including DNS queries, authentication requests, file transfers, and application communications. When connectivity issues, performance degradation, or security alerts occur, packet-level analysis helps administrators and cybersecurity analysts investigate network behavior and identify potential causes.
 
-This lab uses Wireshark to capture and analyze network traffic at the packet level. Analysis includes examining DNS queries and responses, tracing the TCP three-way handshake (SYN → SYN-ACK → ACK), reconstructing application conversations using Follow TCP Stream, and comparing HTTP and HTTPS traffic to understand the role of encryption in protecting data in transit. An HTTP capture demonstrated how credentials transmitted without encryption can be exposed in plaintext, highlighting the importance of TLS-protected authentication.
+This lab uses Wireshark to capture, filter, and analyze network traffic at the packet level. Key activities include examining DNS queries and responses, analyzing the TCP three-way handshake (SYN, SYN-ACK, ACK), reconstructing application conversations using Follow TCP Stream, and comparing HTTP and HTTPS traffic to understand how encryption protects data in transit. In a controlled training environment, I examined unencrypted HTTP traffic to demonstrate how sensitive information, including credentials, can be exposed when transmitted without encryption.
 
-Understanding normal network behavior establishes a baseline for identifying suspicious activity and diagnosing connectivity problems. Examples include unexpected DNS queries that may indicate malware command-and-control activity, unanswered TCP SYN packets that may suggest connectivity issues or packet filtering, and reconstructed TCP streams that reveal the contents of unencrypted application traffic.
+The lab also explores how packet analysis supports network troubleshooting and security investigations. Examples include investigating unexpected DNS queries, analyzing unanswered TCP connection attempts, and inspecting reconstructed TCP streams for potentially exposed data. These indicators require further investigation and must be evaluated in context rather than treated as definitive evidence of malicious activity.
 
-These packet analysis skills provide a practical foundation for Security Operations Center (SOC) monitoring, incident response, network troubleshooting, and cloud network diagnostics.
+The skills developed through this project provide a practical foundation for Security Operations Center (SOC) monitoring, incident response, network troubleshooting, and cloud network diagnostics.
 
 ---
 
 ## 🎯 Business Context
 
-Organizations depend on reliable and secure network communications to support authentication, business applications, cloud services, and data exchange. When connectivity failures, performance issues, or suspicious activity occur, IT and security teams need visibility into network traffic to identify root causes, investigate potential threats, and minimize operational disruption.
+Organizations depend on reliable and secure network communications to support authentication, business applications, cloud services, and data exchange. When connectivity failures, performance degradation, or suspicious activity occur, IT and security teams need visibility into network traffic to identify root causes, investigate potential threats, and minimize operational disruption.
 
-This lab simulates real-world network troubleshooting and security investigation using Wireshark. By capturing and analyzing packets, inspecting DNS queries, tracing TCP connections, and comparing encrypted and unencrypted traffic, the investigation demonstrates how packet-level visibility helps diagnose communication failures, identify potentially exposed sensitive data, and recognize suspicious network behavior.
+This lab simulates real-world network troubleshooting and security investigations using Wireshark. By capturing and analyzing packets, inspecting DNS queries, tracing TCP connections, and comparing encrypted and unencrypted traffic, the lab demonstrates how packet-level visibility helps diagnose communication issues, identify potentially exposed sensitive data, and investigate suspicious network behavior.
 
-Developing the ability to distinguish normal from abnormal traffic supports faster troubleshooting, more effective incident response, and better-informed security decisions. These capabilities help organizations reduce downtime, investigate security events, and strengthen the protection of data transmitted across enterprise and cloud networks.
+The ability to distinguish normal traffic patterns from unusual activity supports efficient troubleshooting, incident response, and informed security decisions. These capabilities help organizations reduce downtime, investigate security incidents, and improve the protection of data transmitted across enterprise and cloud networks.
 
 ---
 
@@ -45,6 +45,26 @@ Developing the ability to distinguish normal from abnormal traffic supports fast
 | **DNS (Domain Name System)** | Translates human-readable domain names (like `google.com`) into IP addresses (like `142.250.80.46`). A query asks "what is the IP for this domain?" and the response contains the answer | A DNS query happens before every website visit, app connection, or email. If DNS is broken, nothing works: sites are unreachable, apps cannot reach databases, and email cannot be delivered |
 | **HTTP vs HTTPS** | HTTP transfers web content **unencrypted**, so anyone who can see the traffic can read every request and response, including login credentials. HTTPS is HTTP with TLS encryption on top, so captured packets cannot be read | In this lab you will see cleartext credentials in an HTTP capture. That is exactly why HTTPS became the standard for any site handling sensitive data |
 | **Promiscuous mode** | A NIC normally captures only packets addressed to your machine. In promiscuous mode it captures every packet on the network segment, including packets addressed to other machines | Wireshark enables it automatically when you start a capture. On **switched networks** you mostly see your own traffic plus broadcasts. On **hub-based networks** or with **port mirroring** you can see all traffic on the segment |
+
+---
+
+## 🛠️ Technology Stack
+
+| Category | Technology | Purpose in This Project |
+|---|---|---|
+| **Network Analysis** | Wireshark | Packet capture, protocol analysis, and network traffic inspection. |
+| | Wireshark Display Filters | Filtering traffic by protocol, IP address, TCP port, and connection behavior. |
+| | Follow TCP Stream | Reconstructing application-level conversations between network endpoints. |
+| **Networking Protocols** | TCP/IP | Analyzing connection establishment, packet exchanges, and communication failures. |
+| | DNS | Examining domain name queries and responses. |
+| | HTTP and HTTPS | Comparing unencrypted and encrypted web traffic. |
+| | TLS | Understanding encryption and data protection during network communications. |
+| **Analysis and Troubleshooting** | Packet Capture (PCAP/PCAPNG) | Saving and reviewing network traffic for investigation. |
+| | TCP Three-Way Handshake | Examining SYN, SYN-ACK, and ACK packets. |
+| | Traffic Pattern Analysis | Investigating unusual DNS activity, unanswered TCP connection attempts, and potentially exposed sensitive data. |
+| **Security Applications** | Network Troubleshooting | Investigating connectivity and communication issues. |
+| | Security Monitoring | Identifying traffic patterns that may warrant further investigation. |
+| | Incident Response Fundamentals | Using packet-level evidence to support security investigations. |
 
 ---
 
