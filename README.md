@@ -110,6 +110,11 @@ On Linux, when the installer asks "Should non-superusers be able to capture pack
 
 **Check it worked:** Wireshark opens and the welcome screen lists your network interfaces. If the list is empty, the capture driver (Npcap, ChmodBPF, or group membership) was not set up correctly. Re-run the installer or log out and back in.
 
+<img width="1063" height="839" alt="Wireshark Download Page" src="https://github.com/user-attachments/assets/35cd0153-892e-42a6-aadb-14bbaafcd5ea" />
+
+<img width="1032" height="839" alt="Install Wireshark" src="https://github.com/user-attachments/assets/522d9010-c7d3-4435-bd50-0f0f81500b6a" />
+
+
 </details>
 
 <details>
@@ -131,6 +136,9 @@ You now have a live packet capture. Each row is one packet, with its time, sourc
 **Optional:** save the capture with **File > Save As** (for example `first-capture.pcapng`) so you can reopen it later without recapturing.
 
 You are ready for the main lab.
+
+<img width="1130" height="685" alt="Wireshark Interface" src="https://github.com/user-attachments/assets/57ff8064-5ab9-41e1-81d0-94cd506f5f7c" />
+
 
 </details>
 
