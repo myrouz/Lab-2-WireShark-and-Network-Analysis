@@ -36,18 +36,29 @@ The ability to distinguish normal traffic patterns from unusual activity support
 
 >Shows the overall process of capturing network traffic and understanding how devices communicate, including how DNS requests and responses work, how TCP connections are established, and how HTTP data is put back together to show web communication.
 
+---
 
+## 🛠️ Technology Stack
 
-## 📚 Key Concepts
-
-| Concept | What it is | Why it matters in Wireshark |
+| Category | Technology | Purpose in This Project |
 |---|---|---|
-| **Packet** | A small unit of data that travels across a network. Data such as an email or web page is broken into hundreds or thousands of packets. Each has a **header** (source IP, destination IP, port number) and a **payload** (the actual data). Packets travel independently, possibly via different routes, and are reassembled at the destination | Wireshark captures and shows each individual packet |
-| **Network protocol** | A set of rules that defines how data is formatted and transmitted. **DNS** translates domain names into IP addresses. **HTTP** transfers web page content. **TCP** ensures reliable delivery. **ICMP** is used for ping and diagnostics | Each protocol has its own port and packet structure, so you can filter by protocol to see only the traffic you care about |
-| **TCP three-way handshake** | The connection setup before two computers exchange data over TCP. **1. SYN:** "I want to connect." **2. SYN-ACK:** "I received your request, here is my acknowledgement." **3. ACK:** "Connection confirmed, ready to send data." | A SYN with no SYN-ACK means the connection was refused or the server is unreachable. One of the most useful patterns for diagnosing connectivity problems |
-| **DNS (Domain Name System)** | Translates human-readable domain names (like `google.com`) into IP addresses (like `142.250.80.46`). A query asks "what is the IP for this domain?" and the response contains the answer | A DNS query happens before every website visit, app connection, or email. If DNS is broken, nothing works: sites are unreachable, apps cannot reach databases, and email cannot be delivered |
-| **HTTP vs HTTPS** | HTTP transfers web content **unencrypted**, so anyone who can see the traffic can read every request and response, including login credentials. HTTPS is HTTP with TLS encryption on top, so captured packets cannot be read | In this lab you will see cleartext credentials in an HTTP capture. That is exactly why HTTPS became the standard for any site handling sensitive data |
-| **Promiscuous mode** | A NIC normally captures only packets addressed to your machine. In promiscuous mode it captures every packet on the network segment, including packets addressed to other machines | Wireshark enables it automatically when you start a capture. On **switched networks** you mostly see your own traffic plus broadcasts. On **hub-based networks** or with **port mirroring** you can see all traffic on the segment |
+| **Network Analysis** | Wireshark | Packet capture, protocol analysis, and network traffic inspection. |
+| | Wireshark Display Filters | Filtering traffic by protocol, IP address, TCP port, and connection behavior. |
+| | Follow TCP Stream | Reconstructing application-level conversations between network endpoints. |
+| **Networking Protocols** | TCP/IP | Analyzing connection establishment, packet exchanges, and communication failures. |
+| | DNS | Examining domain name queries and responses. |
+| | HTTP and HTTPS | Comparing unencrypted and encrypted web traffic. |
+| | TLS | Understanding encryption and data protection during network communications. |
+| **Analysis and Troubleshooting** | Packet Capture (PCAP/PCAPNG) | Saving and reviewing network traffic for investigation. |
+| | TCP Three-Way Handshake | Examining SYN, SYN-ACK, and ACK packets. |
+| | Traffic Pattern Analysis | Investigating unusual DNS activity, unanswered TCP connection attempts, and potentially exposed sensitive data. |
+| **Security Applications** | Network Troubleshooting | Investigating connectivity and communication issues. |
+| | Security Monitoring | Identifying traffic patterns that may warrant further investigation. |
+| | Incident Response Fundamentals | Using packet-level evidence to support security investigations. |
+
+---
+
+
 
 ---
 
@@ -309,26 +320,40 @@ tshark -i eth0 -w capture.pcapng -c 1000
 
 ## 📖 Key Terms
 
-| Term | Definition | Where you'll see it in this lab |
-|---|---|---|
-| **Capture filter** | A filter applied before capturing that limits what gets recorded | Step 3 |
-| **Display filter** | A filter applied after capturing that limits what you see without discarding anything | Step 3, all exercises |
-| **PCAP / PCAPNG** | File formats for saved packet captures. `.pcapng` is Wireshark's default | Step 5 and the portfolio captures |
-| **IP address** | The numeric address that identifies a device on a network | `ip.addr`, `ip.src` filters |
-| **Port** | A number that identifies a specific service on a host, such as 53 for DNS, 80 for HTTP, and 443 for HTTPS | `tcp.port == 443` |
-| **Payload** | The actual data a packet carries | Cleartext credentials in Exercise C |
-| **SYN** | TCP flag that starts a connection ("I want to connect") | Three-way handshake |
-| **ACK** | TCP flag that acknowledges received data or confirms a connection | Three-way handshake |
-| **RST** | TCP flag that forcibly closes a connection, often because it was refused | `tcp.flags.reset == 1` |
-| **TCP stream** | All the packets belonging to one connection, reassembled into a conversation | Exercise D |
-| **A record** | A DNS record that maps a domain name to an IPv4 address | Exercise A |
-| **Cleartext** | Data sent without encryption, readable by anyone who captures it | HTTP login in Exercise C |
-| **TLS** | The encryption layer that turns HTTP into HTTPS | HTTP vs HTTPS |
-| **Man-in-the-middle** | An attacker positioned between two parties who can read or alter their traffic | Why HTTP login forms are risky |
-| **Command and control (C2)** | A server that malware contacts to receive instructions | Spotting unusual DNS queries |
-| **Data exfiltration** | Unauthorized transfer of data out of a network | `http.request` filter |
+Based on the provided Wireshark lab documentation, here is a curated table of the **Top 10 Most Important Terms and Concepts** essential for network analysis and troubleshooting:
+
+| Rank & Term | Category | Why It Is Crucial |
+| --- | --- | --- |
+| **1. Packet** | Core Concept | The foundational unit of data captured and inspected by Wireshark, consisting of a header and payload.|
+| **2. TCP Three-Way Handshake** | Core Concept | The fundamental connection establishment process (SYN, SYN-ACK, ACK) vital for diagnosing network connectivity and refusal patterns.|
+| **3. Display Filter** | Key Term | An essential tool applied after a capture to narrow down and isolate specific traffic without discarding raw data. |
+| **4. Promiscuous Mode** | Core Concept | The NIC setting that enables Wireshark to capture network traffic passing across the segment beyond just local machine traffic. |
+| **5. TCP Stream** | Key Term | Reassembles all individual packets belonging to a single connection into an end-to-end conversation for easy investigation. |
+| **6. Cleartext vs. TLS (Encryption)** | Concept / Term | Explains the security risk of unencrypted HTTP traffic versus secure HTTPS/TLS sessions, demonstrated through captured credentials.|
+| **7. DNS (Domain Name System)** | Core Concept | The critical translation layer mapping domain names to IP addresses; if broken, all external application and web traffic fails. |
+| **8. Payload** | Core Term | The actual user data carried inside a packet, critical for inspecting application layers or discovering exposed cleartext passwords. |
+| **9. Port** | Key Term | Numerical identifiers (like port 53 for DNS or 80 for HTTP) that map traffic to specific network services. |
+| **10. Capture Filter** | Key Term | A pre-capture filter used to limit what data gets recorded to disk, optimizing performance and storage. |
+
 
 ---
+
+## 🛠️ Key Skills Demonstrated
+
+**Live Network Traffic Capture:** Setting up and operating Wireshark across local interfaces using capture engines (WinPcap/Npcap) to record raw data packets passing through network interfaces.   
+
+**Advanced Display Filtering:** Writing and applying precise display filters (dns, http, tcp, ip.addr, http.request.method) to isolate specific protocols, IP addresses, ports, or traffic patterns out of thousands of packets.  
+
+**Network Protocol & DNS Analysis:** Executing and investigating DNS queries and responses (nslookup), recognizing A record translations, and tracking name resolution dependencies across network workflows.  
+
+**TCP Handshake & Connectivity Diagnostics:** Analyzing connection establishment phases by identifying sequential TCP flags (SYN, SYN-ACK, ACK), and diagnosing connection failures or resets (RST).  
+
+** Application Layer & Payload Inspection:** Examining packet payloads and HTTP POST requests to uncover security vulnerabilities, such as identifying exposed cleartext credentials and understanding why TLS/HTTPS encryption is mandatory.   
+
+**TCP Stream Reassembly:**Using Wireshark's "Follow TCP Stream" feature to stitch individual fragmented packets back together into complete, readable client-server conversations for incident investigation.   
+
+**Capture Management & CLI Tools:** Saving, exporting specified packets, reopening .pcapng evidence files, and utilizing command-line tools (tshark) for remote server capture workflows.   
+
 
 ## 💡 Key Takeaway
 
