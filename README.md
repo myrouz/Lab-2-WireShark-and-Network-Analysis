@@ -125,7 +125,7 @@ On Linux, when the installer asks "Should non-superusers be able to capture pack
 This step gets you comfortable with the Wireshark interface before doing anything complex.
 
 1. Open Wireshark.
-2. On the welcome screen you will see a list of network interfaces with wavy lines showing live traffic activity.
+2. On the welcome screen, you’ll see a list of network interfaces, each with a live traffic graph showing network activity in real time.
 3. Double-click your active interface (Ethernet or Wi-Fi). Pick the one with the most activity in the wave graph.
 4. Wireshark starts capturing immediately. Packets appear in the list in real time.
 5. Open a browser and navigate to any website.
