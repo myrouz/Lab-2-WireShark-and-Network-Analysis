@@ -4,7 +4,7 @@
 
 ## 🎥 Walkthrough
 
-Follow along as I complete this lab! 
+See network traffic in action and discover how to analyze packets to uncover what’s really happening on a network!
 
 [Loom Video: WireShark Network Analysis Lab](https://www.loom.com/share/00fdabe6b66741368c5b8a03275f3c78)
 
