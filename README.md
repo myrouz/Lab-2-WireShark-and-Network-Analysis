@@ -32,6 +32,10 @@ The ability to distinguish normal traffic patterns from unusual activity support
 
 ## 🧩 Architecture
 
+<img width="1024" height="587" alt="Wireshark Lab Architecture" src="https://github.com/user-attachments/assets/84dfbfdb-e465-4ceb-b676-9b92f0eb1768" />
+
+>Shows the overall process of capturing network traffic and understanding how devices communicate, including how DNS requests and responses work, how TCP connections are established, and how HTTP data is put back together to show web communication.
+
 
 
 ## 📚 Key Concepts
@@ -68,17 +72,6 @@ The ability to distinguish normal traffic patterns from unusual activity support
 ---
 
 ## ✅ Prerequisites
-
-### What you need
-
-| Requirement | Details |
-|---|---|
-| Computer | Windows 10/11, macOS (Apple Silicon or Intel), or Linux (Ubuntu/Debian used here) |
-| Permissions | Admin rights on your machine (needed to install the capture driver) |
-| Network | An active Ethernet or Wi-Fi connection with some traffic on it |
-| Disk space | About 500 MB free |
-| Browser | Any browser, used to generate traffic to capture |
-| Prior knowledge | None. Basic familiarity with IP addresses and web browsing helps but is not required |
 
 > **Only capture traffic on networks you own or have permission to monitor.** For this lab, your own home network or machine is fine.
 
@@ -314,7 +307,7 @@ tshark -i eth0 -w capture.pcapng -c 1000
 
 ---
 
-## 📖 Vocabulary
+## 📖 Key Terms
 
 | Term | Definition | Where you'll see it in this lab |
 |---|---|---|
