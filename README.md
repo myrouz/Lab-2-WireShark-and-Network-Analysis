@@ -348,9 +348,9 @@ Based on the provided Wireshark lab documentation, here is a curated table of th
 
 **TCP Handshake & Connectivity Diagnostics:** Analyzing connection establishment phases by identifying sequential TCP flags (SYN, SYN-ACK, ACK), and diagnosing connection failures or resets (RST).  
 
-** Application Layer & Payload Inspection:** Examining packet payloads and HTTP POST requests to uncover security vulnerabilities, such as identifying exposed cleartext credentials and understanding why TLS/HTTPS encryption is mandatory.   
+**Application Layer & Payload Inspection:** Examining packet payloads and HTTP POST requests to uncover security vulnerabilities, such as identifying exposed cleartext credentials and understanding why TLS/HTTPS encryption is mandatory.   
 
-**TCP Stream Reassembly:**Using Wireshark's "Follow TCP Stream" feature to stitch individual fragmented packets back together into complete, readable client-server conversations for incident investigation.   
+**TCP Stream Reassembly:** Using Wireshark's "Follow TCP Stream" feature to stitch individual fragmented packets back together into complete, readable client-server conversations for incident investigation.   
 
 **Capture Management & CLI Tools:** Saving, exporting specified packets, reopening .pcapng evidence files, and utilizing command-line tools (tshark) for remote server capture workflows.   
 
