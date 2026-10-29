@@ -6,7 +6,7 @@
 
 Follow along as I complete this lab! 
 
-https://www.loom.com/share/00fdabe6b66741368c5b8a03275f3c78
+[Loom Video: WireShark Network Analysis Lab](https://www.loom.com/share/00fdabe6b66741368c5b8a03275f3c78)
 
 ## 📋 Overview
 
