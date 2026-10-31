@@ -58,30 +58,6 @@ The ability to distinguish normal traffic patterns from unusual activity support
 
 ---
 
-
-
----
-
-## 🛠️ Technology Stack
-
-| Category | Technology | Purpose in This Project |
-|---|---|---|
-| **Network Analysis** | Wireshark | Packet capture, protocol analysis, and network traffic inspection. |
-| | Wireshark Display Filters | Filtering traffic by protocol, IP address, TCP port, and connection behavior. |
-| | Follow TCP Stream | Reconstructing application-level conversations between network endpoints. |
-| **Networking Protocols** | TCP/IP | Analyzing connection establishment, packet exchanges, and communication failures. |
-| | DNS | Examining domain name queries and responses. |
-| | HTTP and HTTPS | Comparing unencrypted and encrypted web traffic. |
-| | TLS | Understanding encryption and data protection during network communications. |
-| **Analysis and Troubleshooting** | Packet Capture (PCAP/PCAPNG) | Saving and reviewing network traffic for investigation. |
-| | TCP Three-Way Handshake | Examining SYN, SYN-ACK, and ACK packets. |
-| | Traffic Pattern Analysis | Investigating unusual DNS activity, unanswered TCP connection attempts, and potentially exposed sensitive data. |
-| **Security Applications** | Network Troubleshooting | Investigating connectivity and communication issues. |
-| | Security Monitoring | Identifying traffic patterns that may warrant further investigation. |
-| | Incident Response Fundamentals | Using packet-level evidence to support security investigations. |
-
----
-
 ## ✅ Prerequisites
 
 > **Only capture traffic on networks you own or have permission to monitor.** For this lab, your own home network or machine is fine.
